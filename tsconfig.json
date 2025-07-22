@@ -13,9 +13,10 @@
         "preserveConstEnums": true,
         "sourceMap": false,
         "strict": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true
     },
-    "files": [
-
-    ]
+    "vueCompilerOptions": {
+        "globalTypesPath": "./node_modules/vue/dist/vue.d.globalTypesPath"
+    },
 }

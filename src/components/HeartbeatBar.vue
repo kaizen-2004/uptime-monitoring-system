@@ -295,29 +295,40 @@ export default {
 
         .beat {
             background-color: $primary;
-            border-radius: $border-radius;
+            border-radius: 2px;
+            width: 14px;
+            height: 30px;
 
+            // I change the shape to look like a lightning bolt shape
+            clip-path: polygon(
+                50% 0%, 60% 35%, 80% 35%, 40% 100%, 55% 60%, 20% 60%);
+            // The Electric glow effect
+            box-shadow: 0 0 8px 2px #00faff, 0 0 16px 4px #00faff88;
+            transition: box-shadow 0.2s;
+
+            &.empty {
+                background-color: #f0f8ff;
+                box-shadow: none;
+                clip-path: none;
+            }
+            &.down {
+                background-color: $danger;
+                box-shadow: 0 0 8px 2px #ff0000, 0 0 16px 4px #ff000088;
+                 }
+            &.pending {
+                background-color: $warning;
+                box-shadow: 0 0 8px 2px #fff700, 0 0 16px 4px #fff70088;
+            }
+
+            &.maintenance {
+                background-color: $maintenance;
+                box-shadow: 0 0 8px 2px #888, 0 0 16px 4px #88888888;
+            }
             /*
             pointer-events needs to be changed because
             tooltip momentarily disappears when crossing between .beat-hover-area and .beat
             */
             pointer-events: none;
-
-            &.empty {
-                background-color: aliceblue;
-            }
-
-            &.down {
-                background-color: $danger;
-            }
-
-            &.pending {
-                background-color: $warning;
-            }
-
-            &.maintenance {
-                background-color: $maintenance;
-            }
         }
     }
 }

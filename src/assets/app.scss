@@ -3,120 +3,158 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 
 #app {
-    font-family: "Twemoji Country Flags", BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, noto sans, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol, noto color emoji;
+  font-family: "Poppins", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  line-height: 1.6; // Improves readability
 }
 
 h1 {
-    font-size: 32px;
+  font-size: 2rem; // Responsive-friendly (32px = 2rem)
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 h2 {
-    font-size: 26px;
+  font-size: 1.625rem; // 26px = 1.625rem
+  font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 
 textarea.form-control {
-    border-radius: 19px;
+  border-radius: 1.2rem; // Changed from 19px to rem for scaling
+  padding: 0.75rem;
+  resize: vertical; // Encourages flexibility without breaking layout
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 0.625rem; // 10px
+  height: 0.625rem;
 }
 
 .bg-maintenance {
-    color: white !important;
-    background-color: $maintenance !important;
+  color: #ffffff !important;
+  background-color: $maintenance !important;
 }
 
 .bg-dark {
-    color: white;
+  background-color: $dark-bg !important;
+  color: #ffffff;
 }
 
 .text-maintenance {
-    color: $maintenance !important;
+  color: $maintenance !important;
 }
 
 .incident a,
 .bg-maintenance a {
-    color: inherit;
+  color: inherit;
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
 }
 
 .list-group {
-    border-radius: 0.75rem;
+  border-radius: 0.75rem;
 
-    .dark & {
-        .list-group-item {
-            background-color: $dark-bg;
-            color: $dark-font-color;
-            border-color: $dark-border-color;
-        }
+  .dark & {
+    .list-group-item {
+      background-color: $dark-bg;
+      color: $dark-font-color;
+      border-color: $dark-border-color;
     }
+  }
 }
 
 
-// optgroup
+// Light Mode - Optgroup Styling
 optgroup {
-    color: #b1b1b1;
-    option {
-        color: #212529;
-    }
+  color: #6c757d; // More neutral than #b1b1b1, Bootstrap-friendly
+  font-weight: 600;
+
+  option {
+    color: #212529; // Solid readable blackish tone
+  }
 }
 
+// Dark Mode - Optgroup Styling
 .dark {
-    optgroup {
-        color: #535864;
-        option {
-            color: $dark-font-color;
-        }
+  optgroup {
+    color: #818a99; // Higher contrast than #535864
+    font-weight: 600;
+
+    option {
+      color: $dark-font-color; // Already well picked
     }
+  }
 }
+
 
 // Scrollbar
 ::-webkit-scrollbar-thumb {
-    background: #ccc;
+    background: #bbb;
     border-radius: 20px;
 }
 
+// Scrollbar track
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
 .modal {
+    -webkit-backdrop-filter: blur(3px); // Safari support
     backdrop-filter: blur(3px);
 }
 
 .modal-content {
     border-radius: 1rem;
     box-shadow: 0 15px 70px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 
     .dark & {
-        box-shadow: 0 15px 70px rgb(0 0 0);
+        box-shadow: 0 15px 70px rgb(0, 0, 0, 0.7);
         background-color: $dark-bg;
     }
 }
 
 .VuePagination__count {
-    font-size: 13px;
+    font-size: 0.8125rem;
     text-align: center;
+    color: $secondary-text;
 }
 
 .shadow-box {
+
     //overflow: hidden;   // Forget why add this, but multiple select hide by this
     box-shadow: 0 15px 70px rgba(0, 0, 0, 0.1);
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 0.625rem;
 
     &.big-padding {
-        padding: 20px;
+        padding: 1.25rem;
+    }
+
+    .dark & {
+        box-shadow: 0 15px 70px rgb(0, 0, 0, 0.7);
+        background-color: $dark-bg2;
     }
 }
 
 .btn {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    font-weight: 500;
+    transition: all 0.25s ease-in-out;
+    border-radius: 0.625rem;
 }
 
 .btn-sm {
-    border-radius: 25px;
+    border-radius: 1.5625rem;
+    font-size: 0.875rem; // 14px
+    padding: 0.375rem 0.75rem;
 }
 
 .btn-primary {
     color: white;
+    background-color: $primary;
+    border-color: $primary;
 
     &:hover, &:active, &:focus, &.active {
         color: white;
@@ -126,6 +164,8 @@ optgroup {
 
     .dark & {
         color: $dark-font-color2;
+        background-color: lighten($primary, 10%);
+        border-color: lighten($primary, 10%);
     }
 }
 
@@ -134,57 +174,79 @@ optgroup {
 
     background-color: $bg-color;
     border-color: $bg-color;
+    color: #333;
 
     &:hover {
-        $hover-color: darken($bg-color, 3%);
-        background-color: $hover-color;
-        border-color: $hover-color;
+        background-color: darken($bg-color, 4%);
+        border-color: darken($bg-color, 4%);
+    }
+    .dark & {
+        background-color: $dark-bg2;
+        border-color: $dark-border-color;
+        color: $dark-font-color;
     }
 }
 
 .btn-warning {
     color: white;
+    background-color: $warning;
+    border-color: $warning;
 
     &:hover, &:active, &:focus, &.active {
         color: white;
+        background-color: darken($warning, 5%);
+        border-color: darken($warning, 5%);
     }
 }
 
 .btn-info {
     color: white;
+    background-color: #00aaff;
+    border-color: #00aaff;
 
     &:hover, &:active, &:focus, &.active {
-        color: white;
+    background-color: darken(#00aaff, 5%);
+    border-color: darken(#00aaff, 5%);
+    color: white;
     }
 }
 
 .btn-dark {
-    background-color: #161B22;
+    background-color: $dark-header-bg;
+    border-color: $dark-header-bg;
+    color: #ffffff;
+
+    &:hover {
+        background-color: lighten($dark-header-bg, 5%);
+        border-color: lighten($dark-header-bg, 5%);
+    }
 }
 
 .btn-outline-normal {
-    padding: 4px 10px;
+    padding: 0.25rem 0.625rem;
     border: 1px solid #ced4da;
-    border-radius: 25px;
+    border-radius: 1.5625rem;
     background-color: transparent;
+    color: #333;
 
     .dark & {
         color: $dark-font-color;
-        border: 1px solid $dark-font-color2;
+        border-color: $dark-font-color2;
     }
 
     &.active {
         background-color: $highlight-white;
 
         .dark & {
-            background-color: $dark-font-color2;
+            background-color: $highlight-white;
+            color: #ffffff;
         }
     }
 }
 
 @media (max-width: 550px) {
     .table-shadow-box {
-        padding: 10px !important;
+        padding: 0.75rem !important;
 
         thead {
             display: none;
@@ -193,36 +255,42 @@ optgroup {
         tbody {
             .shadow-box {
                 background-color: white;
+                border-radius: 0.75rem;
+                box-shadow: 0 4px 12px rgba(0, 54, 144, 0.1);
+                margin-bottom: 0.75rem;
             }
         }
 
         tr {
-            margin-top: 0 !important;
-            padding: 4px 10px !important;
+            padding: 0.5rem 0.625rem !important;
             display: block;
-            margin-bottom: 6px;
-
-            td:first-child {
-                font-weight: bold;
-            }
-
-            td:nth-child(-n+3) {
-                text-align: center;
-            }
-
-            td:last-child {
-                text-align: left;
-            }
+            margin-bottom: 0.5rem;
 
             td {
-                border-bottom: 1px solid $dark-font-color;
                 display: block;
-                padding: 4px;
+                padding: 0.5rem;
+                border-bottom: 1px solid #e0e0e0;
+            
+
+
+                &:first-child {
+                font-weight: 600;
+                color: $primary;
+                }
+
+                &:nth-child(-n+3) {
+                text-align: center;
+                }
+
+                &:last-child {
+                text-align: left;
+                }
 
                 .badge {
-                    margin: auto;
+                    margin: 0.5rem auto 0;
                     display: block;
-                    width: 30%;
+                    width: 70%;
+                    text-align: center;
                 }
             }
         }
@@ -231,30 +299,38 @@ optgroup {
 
 // Dark Theme override here
 .dark {
-    background-color: #090c10;
+    background-color: #0e1520;
     color: $dark-font-color;
 
     mark, .mark {
-        background-color: #b6ad86;
+        background-color: $highlight;
     }
 
-    &::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb {
+    &::-webkit-scrollbar-thumb, 
+    ::-webkit-scrollbar-thumb {
         background: $dark-border-color;
     }
 
     .shadow-box {
         &:not(.alert) {
             background-color: $dark-bg;
+            border-radius: 0.75rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
     }
 
     .form-check-input {
         background-color: $dark-bg2;
         border-color: $dark-border-color;
+
+        &:checked {
+            background-color: $primary;
+            border-color: $primary;
+        }
     }
 
     .input-group-text {
-        background-color: #282f39;
+        background-color: #232f3b;
         border-color: $dark-border-color;
         color: $dark-font-color;
     }
@@ -288,6 +364,7 @@ optgroup {
     .form-select:focus {
         color: $dark-font-color;
         background-color: $dark-bg2;
+        border-color: $dark-border-color;
     }
 
     .form-select:disabled {
@@ -305,20 +382,24 @@ optgroup {
     }
 
     .table-hover > tbody > tr:hover > * {
-        --bs-table-accent-bg: #070a10;
+        --bs-table-accent-bg: $dark-bg2;
         color: $dark-font-color;
     }
 
     .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
         color: $dark-font-color2;
+        background-color: $highlight;
     }
 
     .bg-primary {
         color: $dark-font-color2;
+        background-color: $primary;
     }
 
     .btn-secondary {
         color: white;
+        background-color: $dark-header-bg;
+        border-color: $dark-header-bg;
     }
 
     .btn-normal {
@@ -340,6 +421,7 @@ optgroup {
 
         &:hover, &:active, &:focus, &.active {
             color: $dark-font-color2;
+            background-color: darken($warning, 10%);
         }
     }
 
@@ -352,13 +434,11 @@ optgroup {
         }
     }
 
-    .modal-header {
+    .modal-header,
+    .modal-footer{
         border-color: $dark-bg;
     }
 
-    .modal-footer {
-        border-color: $dark-bg;
-    }
 
     // Pagination
     .page-item.disabled .page-link {
@@ -370,15 +450,16 @@ optgroup {
         background-color: $dark-bg;
         border-color: $dark-border-color;
         color: $dark-font-color;
+
+        &:hover {
+            background-color: $highlight;
+            color: $dark-font-color2;
+        }
     }
 
     .monitor-list {
         .item {
-            &:hover {
-                background-color: $dark-bg2;
-            }
-
-            &.active {
+            &:hover, &.active {
                 background-color: $dark-bg2;
             }
         }
@@ -405,57 +486,38 @@ optgroup {
         &.bg-maintenance,
         &.bg-light {
             color: $dark-font-color2;
+            background-color: rgba($highlight, 0.05);
+            border-color: $highlight;
         }
     }
 
 }
 
-/*
- * Transitions
- */
 
-// page-change
-.slide-fade-enter-active {
-    transition: all 0.2s $easing-in;
-}
 
-.slide-fade-leave-active {
-    transition: all 0.2s $easing-in;
-}
+// Shared transition settings
+$transition-duration: 0.2s;
+$transition-easing: $easing-in;
 
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-    transform: translateY(50px);
+// Base slide-fade transition
+@mixin slide-fade($direction, $distance) {
+  &-enter-active,
+  &-leave-active {
+    transition: all $transition-duration $transition-easing;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    transform: translate#{$direction}($distance);
     opacity: 0;
+  }
 }
 
-.slide-fade-right-enter-active {
-    transition: all 0.2s $easing-in;
-}
+// Usage
+.slide-fade       { @include slide-fade('Y', 50px); }  // Down
+.slide-fade-up    { @include slide-fade('Y', -50px); } // Up
+.slide-fade-right { @include slide-fade('X', 50px); }  // Right
 
-.slide-fade-right-leave-active {
-    transition: all 0.2s $easing-in;
-}
-
-.slide-fade-right-enter-from,
-.slide-fade-right-leave-to {
-    transform: translateX(50px);
-    opacity: 0;
-}
-
-.slide-fade-up-enter-active {
-    transition: all 0.2s $easing-in;
-}
-
-.slide-fade-up-leave-active {
-    transition: all 0.2s $easing-in;
-}
-
-.slide-fade-up-enter-from,
-.slide-fade-up-leave-to {
-    transform: translateY(-50px);
-    opacity: 0;
-}
 
 .monitor-list {
     &.scrollbar {
@@ -463,9 +525,7 @@ optgroup {
     }
 
     @media (max-width: 770px) {
-        &.scrollbar {
             height: calc(100% - 97px);
-        }
     }
 
     .item {
@@ -499,49 +559,59 @@ optgroup {
 }
 
 .alert-success {
-    color: #122f21;
+    color: #ffffff;
     background-color: $primary;
-    border-color: $primary;
+    border-color: darken($nsjbi-accent, 10%);
 }
 
 .alert-info {
-    color: #055160;
-    background-color: #cff4fc;
-    border-color: #cff4fc;
+    color: $primary;       
+    background-color: lighten($primary, 45%); 
+    border-color: lighten($primary, 30%);
 }
 
 .alert-danger {
     color: #842029;
-    background-color: #f8d7da;
-    border-color: #f8d7da;
+    background-color: #f8d7da; 
+    border-color: #f5c2c7;
 }
 
 .btn-success {
-    color: #fff;
-    background-color: #4caf50;
-    border-color: #4caf50;
+    color: #ffffff;
+    background-color: $primary; 
+    border-color: darken($primary, 10%);
 }
 
 [contenteditable=true] {
     transition: all $easing-in 0.2s;
-    background-color: rgba(239, 239, 239, 0.7);
-    border-radius: 8px;
+    background-color: rgba(240, 240, 240, 0.6);
+    border-radius: 6px;
 
     &.no-bg {
         background-color: transparent !important;
     }
 
     &:focus {
-        outline: 0 solid #eee;
-        background-color: rgba(245, 245, 245, 0.9);
+        outline: 2px solid rgba(0, 123, 255, 0.3);
+        background-color: rgba(250, 250, 250, 0.95);
     }
 
     &:hover {
-        background-color: rgba(239, 239, 239, 0.8);
+        background-color: rgba(240, 240, 240, 0.8);
     }
 
     .dark & {
-        background-color: rgba(239, 239, 239, 0.2);
+        background-color: rgba(255, 255, 255, 0.05);
+        color: #ddd;
+
+        &:focus {
+            outline: 2px solid rgba(0, 123, 255, 0.4);
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.07);
+        }
     }
 
     /*
@@ -556,16 +626,16 @@ optgroup {
 }
 
 .action {
-    transition: all $easing-in 0.2s;
+    transition: all 0.2S ease-in;
 
     &:hover {
         cursor: pointer;
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 }
 
 .vue-image-crop-upload .vicp-wrap {
-    border-radius: 10px !important;
+    border-radius: 0.625rem !important;
 }
 
 .spinner {
@@ -586,7 +656,7 @@ h5.settings-subheading::after {
     content: "";
     display: block;
     width: 50%;
-    padding-top: 8px;
+    padding-top: 0.5rem;
     border-bottom: 1px solid $dark-border-color;
 }
 
@@ -595,52 +665,67 @@ h5.settings-subheading::after {
     /* we dont use `language-` classes anymore so thats why we need to add background and text color manually */
 
     border-radius: 1rem;
-    padding: 10px 5px;
+    padding: 0.625rem 0.3125rem;
     border: 1px solid #ced4da;
 
     .dark & {
         background: $dark-bg2;
-        border: 1px solid $dark-border-color;
+        border: $dark-border-color;
     }
 }
 
 
 $shadow-box-padding: 20px;
+$shadow-box-radius: 10px;
+$shadow-bg-light: rgba(255, 255, 255, 0.2);
+$shadow-bg-dark: rgba($dark-header-bg, 0.9);
+$shadow-blur: 2px;
 
 .shadow-box-with-fixed-bottom-bar {
-    padding-top: $shadow-box-padding;
-    padding-bottom: 0;
-    padding-right: $shadow-box-padding;
-    padding-left: $shadow-box-padding;
+  padding: $shadow-box-padding $shadow-box-padding 0;
+  border-radius: $shadow-box-radius;
+  overflow: hidden;
+  background-color: white;
+
+  .dark & {
+    background-color: $dark-bg;
+  }
 }
 
 .fixed-bottom-bar {
-    position: sticky;
-    bottom: 0;
-    margin-left: -$shadow-box-padding;
-    margin-right: -$shadow-box-padding;
-    z-index: 10;
-    background-color: rgba(white, 0.2);
-    backdrop-filter: blur(2px);
-    border-radius: 0 0 10px 10px;
+  position: sticky;
+  bottom: 0;
+  margin: 0 -$shadow-box-padding;
+  z-index: 10;
+  background-color: $shadow-bg-light;
+  -webkit-backdrop-filter: blur($shadow-blur);
+  backdrop-filter: blur($shadow-blur);
+  border-radius: 0 0 $shadow-box-radius $shadow-box-radius;
+  padding: 10px 15px;
 
-    .dark & {
-        background-color: rgba($dark-header-bg, 0.9);
-    }
+  .dark & {
+    background-color: $shadow-bg-dark;
+  }
 }
 
-@media (max-width: 770px) {
-    .toast-container {
-        margin-bottom: 100px !important;
-    }
+
+// Responsive Toast Container Spacing
+$mobile-breakpoint: 550px;
+$tablet-breakpoint: 770px;
+$default-toast-margin: 100px;
+$extra-toast-margin: 126px;
+
+.toast-container {
+  @media (max-width: $tablet-breakpoint) {
+    margin-bottom: $default-toast-margin !important;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    margin-bottom: $extra-toast-margin !important;
+  }
 }
 
-@media (max-width: 550px) {
-    .toast-container {
-        margin-bottom: 126px !important;
-    }
-}
-
+// Zoom Cursor
 .zoom-cursor {
   cursor: zoom-in;
 }
