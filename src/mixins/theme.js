@@ -100,10 +100,13 @@ export default {
          * @returns {void}
          */
         updateThemeColorMeta() {
-            if (this.theme === "dark") {
-                document.querySelector("#theme-color").setAttribute("content", "#161B22");
-            } else {
-                document.querySelector("#theme-color").setAttribute("content", "#5cdd8b");
+            const meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) {
+                if (this.theme === "dark") {
+                    meta.setAttribute("content", "#161B22");
+                } else {
+                    meta.setAttribute("content", "#5cdd8b");
+                }
             }
         }
     }

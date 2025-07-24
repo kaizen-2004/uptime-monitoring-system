@@ -39,6 +39,10 @@ const routes = [
         component: Entry,
     },
     {
+        path: "/dashboard",
+        redirect: "/empty/dashboard"
+    },
+    {
         // If it is "/dashboard", the active link is not working
         // If it is "", it overrides the "/" unexpectedly
         // Give a random name to solve the problem.
@@ -51,7 +55,7 @@ const routes = [
                 children: [
                     {
                         name: "DashboardHome",
-                        path: "/dashboard",
+                        path: "dashboard", // changed from "/dashboard" to "dashboard"
                         component: DashboardHome,
                         children: [
                             {

@@ -13,27 +13,17 @@
             </div>
 
             <router-link :to="monitorURL(monitor.id)" class="item" :class="{ 'disabled': ! monitor.active }">
-                <div class="row">
-                    <div class="col-6 small-padding" :class="{ 'monitor-item': $root.userHeartbeatBar == 'bottom' || $root.userHeartbeatBar == 'none' }">
-                        <div class="info">
-                            <Uptime :monitor="monitor" type="24" :pill="true" />
-                            <span v-if="hasChildren" class="collapse-padding" @click.prevent="changeCollapsed">
-                                <font-awesome-icon icon="chevron-down" class="animated" :class="{ collapsed: isCollapsed}" />
-                            </span>
-                            {{ monitor.name }}
-                        </div>
-                        <div v-if="monitor.tags.length > 0" class="tags gap-1">
-                            <Tag v-for="tag in monitor.tags" :key="tag" :item="tag" :size="'sm'" />
-                        </div>
-                    </div>
-                    <div v-show="$root.userHeartbeatBar == 'normal'" :key="$root.userHeartbeatBar" class="col-6">
+                <div class="monitor-list-item-card">
+                    <span class="monitor-name">{{ monitor.name }}</span>
+                    <Uptime :monitor="monitor" type="24" :pill="true" />
+                    <div v-if="$root.userHeartbeatBar == 'normal'" class="heartbeat-wrapper">
                         <HeartbeatBar ref="heartbeatBar" size="small" :monitor-id="monitor.id" />
                     </div>
-                </div>
-
-                <div v-if="$root.userHeartbeatBar == 'bottom'" class="row">
-                    <div class="col-12 bottom-style">
+                    <div v-if="$root.userHeartbeatBar == 'bottom'" class="heartbeat-wrapper bottom-style">
                         <HeartbeatBar ref="heartbeatBar" size="small" :monitor-id="monitor.id" />
+                    </div>
+                    <div v-if="monitor.tags.length > 0" class="tags gap-1">
+                        <Tag v-for="tag in monitor.tags" :key="tag" :item="tag" :size="'sm'" />
                     </div>
                 </div>
             </router-link>
@@ -213,6 +203,26 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/vars.scss";
 
+.monitor-list-item-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background-color: $primary;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    align-items: center;
+    text-align: center;
+    min-height: 180px;
+    flex: 1 1 0;
+    box-sizing: border-box;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: #eef2f5;
+    }
+}
+
 .small-padding {
     padding-left: 5px !important;
     padding-right: 5px !important;
@@ -228,11 +238,12 @@ export default {
 // }
 
 .tags {
-    margin-top: 4px;
-    padding-left: 67px;
+    margin-top: 6px;
+    padding-left: 0px;
     display: flex;
     flex-wrap: wrap;
-    gap: 0;
+    gap: 4px;
+    justify-content: center;
 }
 
 .collapsed {
@@ -246,11 +257,62 @@ export default {
 .select-input-wrapper {
     float: left;
     margin-top: 15px;
-    margin-left: 3px;
-    margin-right: 10px;
+    margin-left: 8px;
+    margin-right: 12x;
     padding-left: 4px;
     position: relative;
     z-index: 15;
 }
 
+.monitor-item .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.monitor-item .badge {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    min-width: 60px;
+    padding: 0.5em 1em;
+}
+.monitor-item .monitor-name {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 600;
+    word-break: break-word;
+    text-align: center;
+    margin-bottom: 4px;
+    width: 100%;
+}
+@media (max-width: 900px) {
+    .monitor-list-item-card {
+        min-height: 120px;
+        padding: 8px 4px;
+    }
+    .monitor-item .monitor-name {
+        font-size: clamp(0.9rem, 3vw, 1rem);
+    }
+    .monitor-item .badge {
+        font-size: clamp(0.9rem, 3vw, 1rem);
+        min-width: 48px;
+        padding: 0.3em 0.7em;
+    }
+}
+.heartbeat-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem 0 0.2rem 0;
+}
+.heartbeat-wrapper :deep(canvas),
+.heartbeat-wrapper :deep(svg),
+.heartbeat-wrapper :deep(.heartbeat-bar) {
+    width: 100% !important;
+    max-width: 100%;
+    min-width: 0;
+    display: block;
+}
 </style>

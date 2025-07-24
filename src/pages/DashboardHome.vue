@@ -35,8 +35,10 @@
             </div>
 
             <!-- Monitors grid below Quick Stats -->
-            <div class="monitor-list-grid">
-                <MonitorList />
+            <div class="shadow-box monitor-list-outer">
+                <div class="monitor-list-grid">
+                    <MonitorList />
+                </div>
             </div>
         </div>
     </transition>
@@ -44,21 +46,59 @@
 </template>
 
 <script>
+import MonitorList from "../components/MonitorList.vue";
 
+export default {
+    components: {
+        MonitorList,
+    },
+};
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/vars";
+.monitor-list-outer {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    padding: 2rem 1.5rem;
+    margin-bottom: 2rem;
+}
+.dark .monitor-list-outer {
+    background: #222b36;
+}
 .monitor-list-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
     align-items: stretch;
-    margin-bottom: 2rem;
+}
+:deep(.monitor-item) {
+    background: #e3f2fd;
+    border-radius: 18px;
+    padding: 1.5rem 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    font-size: 1.3rem;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    text-align: center;
+    margin-bottom: 0;
+    transition: box-shadow 0.2s;
+}
+.dark :deep(.monitor-item) {
+    background: #90caf9;
+}
+@media (max-width: 900px) {
+    .monitor-list-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+    }
+    :deep(.monitor-item) {
+        font-size: 1.1rem;
+        padding: 1rem 0.5rem;
+    }
 }
 .num {
     font-size: 30px;
-    color: $primary;
+    color: #002C5f;
     font-weight: bold;
     display: block;
 }

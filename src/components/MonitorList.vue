@@ -3,7 +3,7 @@
         <div v-if="Object.keys($root.monitorList).length === 0">
             No monitors found.
         </div>
-        <div v-else>
+        <div v-else class="monitor-list-grid">
             <MonitorListItem
                 v-for="monitor in sortedMonitorList"
                 :key="monitor.id"
@@ -339,9 +339,9 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/vars.scss";
-.monitor-list {
+.monitor-list-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
     align-items: stretch;
     padding: 1rem 0;
