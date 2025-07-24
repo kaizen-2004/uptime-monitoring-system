@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+tmp/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependency lockfiles (optional)
+package-lock.json
+
+# Docker
+docker/
+compose.yaml
+
+# IDE and editor settings
+.vscode/
+.idea/
+
+# Environment/config
+.npmrc
+.env
