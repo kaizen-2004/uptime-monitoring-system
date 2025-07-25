@@ -46,24 +46,19 @@ export default {
         },
 
         color() {
-            if (this.lastHeartBeat.status === MAINTENANCE) {
-                return "maintenance";
-            }
-
-            if (this.lastHeartBeat.status === DOWN) {
-                return "danger";
-            }
-
-            if (this.lastHeartBeat.status === UP) {
-                return "primary";
-            }
-
-            if (this.lastHeartBeat.status === PENDING) {
-                return "warning";
-            }
-
+    switch (this.lastHeartBeat.status) {
+        case MAINTENANCE:
+            return "maintenance";
+        case DOWN:
+            return "down";
+        case UP:
+            return "up";
+        case PENDING:
+            return "warning";
+        default:
             return "secondary";
-        },
+    }
+},
 
         lastHeartBeat() {
             if (this.monitor.id in this.$root.lastHeartbeatList && this.$root.lastHeartbeatList[this.monitor.id]) {
@@ -96,8 +91,34 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import "../assets/vars.scss";
+
 .badge {
     min-width: 62px;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.95rem;
+    text-align: center;
+    border-radius: 999px;
+    color: white;
 }
+
+.bg-up {
+    background-color: $primary;
+}
+.bg-down {
+    background-color: $danger;
+}
+.bg-maintenance {
+    background-color: $maintenance;
+}
+.bg-warning {
+    background-color: $warning;
+    color: #000; // readable on yellow
+}
+.bg-secondary {
+    background-color: $secondary-text;
+}
+
 </style>

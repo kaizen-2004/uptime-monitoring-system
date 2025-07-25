@@ -55,9 +55,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/vars.scss";
 .monitor-list-outer {
-    background: var(--card-bg, #fff);
-    border-radius: $border-radius;
+    background: $light-bg;
+    border-radius: 18px;
     box-shadow: 0 2px 16px rgba(0,0,0,0.08);
     padding: 2rem 1.5rem;
 }
@@ -69,20 +70,21 @@ export default {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
     align-items: stretch;
-}
+} #e3f2fd
 :deep(.monitor-item) {
-    background: #e3f2fd;
-    border-radius: 18px;
+    background: var(--highlight-white);
+    border-radius: $border-radius;
     padding: 1.5rem 1rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     font-size: 1.3rem;
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    font-family: "Poppins", sans-serif;
     text-align: center;
     margin-bottom: 0;
     transition: box-shadow 0.2s;
 }
 .dark :deep(.monitor-item) {
-    background: #90caf9;
+    background: $dark-bg2;
+    color: $dark-font-color2;
 }
 @media (max-width: 900px) {
     .monitor-list-grid {
@@ -96,14 +98,22 @@ export default {
 }
 .num {
     font-size: 30px;
-    color: #002C5f;
+    color: $primary;
     font-weight: bold;
     display: block;
 }
 
 .shadow-box {
     padding: 20px;
+    background: var(--card-bg, #fff);
+    border-radius: $border-radius;
+
+    .dark & {
+        background-color: $dark-bg2;
+        color: $dark-font-color;
+    }
 }
+
 
 table {
     font-size: 14px;
@@ -127,6 +137,18 @@ table {
 @media screen and (min-aspect-ratio: 4/3) {
     .name-column {
         min-width: 200px;
+    }
+}
+
+@media (max-width: 900px) {
+    .monitor-list-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+    }
+
+    :deep(.monitor-item) {
+        font-size: 1.1rem;
+        padding: 1rem 0.5rem;
     }
 }
 </style>

@@ -358,15 +358,15 @@ export default {
 }
 
 .list-header {
-    border-bottom: 1px solid #dee2e6;
-    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid $light-border-color;
+    border-radius: $border-radius $border-radius 0 0;
     margin: -10px;
     margin-bottom: 10px;
     padding: 10px;
 
     .dark & {
         background-color: $dark-header-bg;
-        border-bottom: 0;
+        border-bottom: 1px solid $dark-border-color;
     }
 }
 
@@ -396,7 +396,7 @@ export default {
 
 .search-icon {
     padding: 10px;
-    color: #c0c0c0;
+    color: $dark-font-color;
 
     // Clear filter button (X)
     svg[data-icon="times"] {
