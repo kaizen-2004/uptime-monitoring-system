@@ -14,14 +14,14 @@
 
             <router-link :to="monitorURL(monitor.id)" class="item" :class="{ 'disabled': ! monitor.active }">
                 <div class="monitor-list-item-card">
-                    <span class="monitor-name">{{ monitor.name }}</span>
-                    <Uptime :monitor="monitor" type="24" :pill="true" />
+                    <span class="monitor-name">{{ monitor.name }}</span> 
                     <div v-if="$root.userHeartbeatBar == 'normal'" class="heartbeat-wrapper">
                         <HeartbeatBar ref="heartbeatBar" size="small" :monitor-id="monitor.id" />
                     </div>
                     <div v-if="$root.userHeartbeatBar == 'bottom'" class="heartbeat-wrapper bottom-style">
                         <HeartbeatBar ref="heartbeatBar" size="small" :monitor-id="monitor.id" />
                     </div>
+                    <Uptime :monitor="monitor" type="24" :pill="true" />
                     <div v-if="monitor.tags.length > 0" class="tags gap-1">
                         <Tag v-for="tag in monitor.tags" :key="tag" :item="tag" :size="'sm'" />
                     </div>
@@ -208,8 +208,8 @@ export default {
     flex-direction: column;
     gap: 0.5rem;
     padding: 12px 16px;
-    border-radius: 8px;
-    background-color: $primary;
+    border-radius: $border-radius;
+    background-color: $light-bg;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     align-items: center;
     text-align: center;
@@ -218,8 +218,17 @@ export default {
     box-sizing: border-box;
     width: 100%;
     transition: background-color 0.3s ease;
+
+    .dark & {
+        background-color: $dark-bg2;
+        box-shadow: none;
+    }
+
     &:hover {
-        background-color: #eef2f5;
+        background-color: $highlight-white;
+        .dark & {
+            background-color: $dark-bg;
+        }
     }
 }
 
@@ -285,7 +294,9 @@ export default {
     text-align: center;
     margin-bottom: 4px;
     width: 100%;
+    color: $light-font-color;
 }
+
 @media (max-width: 900px) {
     .monitor-list-item-card {
         min-height: 120px;
@@ -314,5 +325,15 @@ export default {
     max-width: 100%;
     min-width: 0;
     display: block;
+}
+
+@media (max-width: 900px) {
+    .monitor-list-item-card {
+        min-height: 120px;
+        padding: 8px 4px;
+    }
+    .monitor-name {
+        font-size: clamp(0.9rem, 3vw, 1rem);
+    }
 }
 </style>

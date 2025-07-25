@@ -1,24 +1,40 @@
-$primary: #002C5f;
-$nsjbi-accent: #ffb400;
-$danger: #cc0000;    
-$warning: #fcbf49;  
-$maintenance: #e81777; 
-$link-color: #0057b8;  
-$border-radius: 1rem;  
-$secondary-text: #444444;
+//== NSJBI Branding Colors ==
+$primary: #002C5F;               // NSJBI primary blue
+$nsjbi-accent: #FFB400;          // NSJBI accent yellow
 
-$highlight: #3f87ca;  
-$highlight-white: #f4f8fc;
+//== System Status Colors ==
+$danger: #CC0000;                // Error/Alert
+$warning: #FCBF49;               // Warning
+$maintenance: #E81777;           // Maintenance status
 
-$dark-font-color: #b8bec9; 
-$dark-font-color2: #12181f;
-$dark-bg: #0e1520;  
-$dark-bg2: #0a0f1a;
-$dark-border-color: #1b2430;
-$dark-header-bg: #142038;    
+//== Link & Action Colors ==
+$link-color: #0057B8;            // Link color, NSJBI blue variation
+$highlight: #3F87CA;             // Highlight (hover, focus)
+$highlight-white: #F4F8FC;       // Light background highlight
 
+//== Typography ==
+$dark-font-color: #B8BEC9;       // Light text on dark bg
+$dark-font-color2: #12181F;      // Deep dark text for dark mode
+$secondary-text: #444444;        // Subtext and captions
+
+//== Backgrounds (Dark Mode) ==
+$dark-bg: #0E1520;               // Main dark background
+$dark-bg2: #0A0F1A;              // Cards or lower contrast bg
+$dark-border-color: #1B2430;     // Borders in dark mode
+$dark-header-bg: #142038;        // Headers/navbars in dark mode
+
+//== Border Radius ==
+$border-radius: 1rem;            // Global border radius (rounded UI)
+$dropdown-border-radius: 0.5rem; // Dropdowns and popups
+
+//== Transitions & Animations ==
 $easing-in: cubic-bezier(0.54, 0.78, 0.55, 0.97);
 $easing-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $easing-in-out: cubic-bezier(0.79, 0.14, 0.15, 0.86);
 
-$dropdown-border-radius: 0.5rem;
+//== Optional (Light Mode Backgrounds - Add as needed) ==
+$light-bg: #FFFFFF;
+$light-bg2: #F9FAFB;
+$light-border-color: #E0E0E0;
+$light-header-bg: #F1F5F9;
+$light-font-color: #1E293B;
