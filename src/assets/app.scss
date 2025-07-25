@@ -3,9 +3,12 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 
 #app {
-  font-family: "Poppins", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  line-height: 1.6; // Improves readability
-}
+    font-family: "Poppins", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
 h1 {
   font-size: 2rem; // Responsive-friendly (32px = 2rem)

@@ -1,10 +1,6 @@
 <template>
     <transition ref="tableContainer" name="slide-fade" appear>
         <div v-if="$route.name === 'DashboardHome'">
-            <!-- Add New Monitor Button-->
-            <router-link to="/add" class="btn btn-primary mb-3">
-                <font-awesome-icon icon="plus" /> {{ $t("Add New Monitor") }}
-            </router-link>
             <!-- Quick Stats at the top -->
             <h1 class="mb-3">
                 {{ $t("Quick Stats") }}
@@ -33,7 +29,10 @@
                     </div>
                 </div>
             </div>
-
+            <!-- Add New Monitor Button-->
+            <router-link to="/add" class="btn btn-primary mb-3">
+                <font-awesome-icon icon="plus" /> {{ $t("Add New Monitor") }}
+            </router-link>
             <!-- Monitors grid below Quick Stats -->
             <div class="shadow-box monitor-list-outer">
                 <div class="monitor-list-grid">
@@ -57,14 +56,13 @@ export default {
 
 <style lang="scss" scoped>
 .monitor-list-outer {
-    background: #fff;
-    border-radius: 18px;
+    background: var(--card-bg, #fff);
+    border-radius: $border-radius;
     box-shadow: 0 2px 16px rgba(0,0,0,0.08);
     padding: 2rem 1.5rem;
-    margin-bottom: 2rem;
 }
 .dark .monitor-list-outer {
-    background: #222b36;
+    background: var(--card-bg-dark, $dark-bg2);
 }
 .monitor-list-grid {
     display: grid;
