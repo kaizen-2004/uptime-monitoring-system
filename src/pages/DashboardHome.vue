@@ -2,9 +2,9 @@
     <transition ref="tableContainer" name="slide-fade" appear>
         <div v-if="$route.name === 'DashboardHome'">
             <!-- Quick Stats at the top -->
-            <h1 class="mb-3">
+            <h2 class="mb-3">
                 {{ $t("Quick Stats") }}
-            </h1>
+            </h2>
             <div class="shadow-box big-padding text-center mb-4">
                 <div class="row">
                     <div class="col">
@@ -96,17 +96,49 @@ export default {
         padding: 1rem 0.5rem;
     }
 }
+
 .num {
-    font-size: 30px;
+    font-size: clamp(1.5rem, 5vw, 2.5rem); // scales with screen size
     color: $primary;
     font-weight: bold;
     display: block;
+    word-break: break-word;
 }
+
 
 .shadow-box {
     padding: 20px;
     background: var(--card-bg, #fff);
     border-radius: $border-radius;
+    text-align: center;
+
+    h3 {
+        font-size: clamp(1rem, 2.5vw, 1.4rem); // responsive heading
+        margin-bottom: 0.5rem;
+    }
+
+    .num {
+        font-size: clamp(1.4rem, 5vw, 2.5rem); // responsive number
+        font-weight: bold;
+        color: $primary;
+        display: block;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+        .col {
+        flex: 1 1 150px; // allows wrapping and responsiveness
+        max-width: 180px;
+    }
+
+    .col {
+        flex: 1 1 150px; // allows wrapping and responsiveness
+        max-width: 180px;
+    }
 
     .dark & {
         background-color: $dark-bg2;
@@ -114,6 +146,17 @@ export default {
     }
 }
 
+
+@media (max-width: 480px) {
+    .shadow-box {
+        padding: 1rem;
+
+        .col {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+    }
+}
 
 table {
     font-size: 14px;
