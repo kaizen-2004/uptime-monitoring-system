@@ -1,13 +1,16 @@
 exports.up = function (knex) {
+    // Add new column monitor.mqtt_check_type
     return knex.schema
         .alterTable("monitor", function (table) {
-            table.boolean("cache_bust").notNullable().defaultTo(false);
+            table.string("mqtt_check_type", 255).notNullable().defaultTo("keyword");
         });
+
 };
 
 exports.down = function (knex) {
+    // Drop column monitor.mqtt_check_type
     return knex.schema
         .alterTable("monitor", function (table) {
-            table.dropColumn("cache_bust");
+            table.dropColumn("mqtt_check_type");
         });
 };

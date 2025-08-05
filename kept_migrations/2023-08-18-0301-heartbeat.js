@@ -1,15 +1,16 @@
 exports.up = function (knex) {
-    // Add new column heartbeat.retries
+    // Add new column heartbeat.end_time
     return knex.schema
         .alterTable("heartbeat", function (table) {
-            table.integer("retries").notNullable().defaultTo(0);
+            table.datetime("end_time").nullable().defaultTo(null);
         });
 
 };
 
 exports.down = function (knex) {
+    // Rename heartbeat.start_time to heartbeat.time
     return knex.schema
         .alterTable("heartbeat", function (table) {
-            table.dropColumn("retries");
+            table.dropColumn("end_time");
         });
 };
