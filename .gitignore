@@ -26,3 +26,4 @@ compose.yaml
 # Environment/config
 .npmrc
 .env
+uptime-kuma-full-backup.zip
