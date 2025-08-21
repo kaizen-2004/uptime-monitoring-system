@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        <div class="my-4 pt-4">
+       <!-- <div class="my-4 pt-4">
             <h5 class="my-4 settings-subheading">{{ $t("settingsCertificateExpiry") }}</h5>
             <p>{{ $t("certificationExpiryDescription") }}</p>
             <p>{{ $t("notificationDescription") }}</p>
@@ -73,7 +73,7 @@
                     {{ $t("Save") }}
                 </button>
             </div>
-        </div>
+        </div> -->
 
         <NotificationDialog ref="notificationDialog" />
     </div>

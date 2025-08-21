@@ -685,9 +685,9 @@ $shadow-bg-dark: rgba($dark-header-bg, 0.9);
 $shadow-blur: 2px;
 
 .shadow-box-with-fixed-bottom-bar {
-  padding: $shadow-box-padding $shadow-box-padding 0;
+  padding: $shadow-box-padding $shadow-box-padding calc($shadow-box-padding + $fixed-bar-height);
   border-radius: $shadow-box-radius;
-  overflow: hidden;
+  overflow: visible;
   background-color: white;
 
   .dark & {
@@ -697,18 +697,15 @@ $shadow-blur: 2px;
 
 .fixed-bottom-bar {
   position: sticky;
+  left: 0;
+  width: 100%;
   bottom: 0;
   margin: 0 -$shadow-box-padding;
   z-index: 10;
-  background-color: $shadow-bg-light;
   -webkit-backdrop-filter: blur($shadow-blur);
   backdrop-filter: blur($shadow-blur);
   border-radius: 0 0 $shadow-box-radius $shadow-box-radius;
   padding: 10px 15px;
-
-  .dark & {
-    background-color: $shadow-bg-dark;
-  }
 }
 
 

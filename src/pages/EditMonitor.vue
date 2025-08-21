@@ -644,7 +644,7 @@
                                 <input id="resend-interval" v-model="monitor.resendInterval" type="number" class="form-control" required min="0" step="1">
                             </div>
 
-                            <h2 v-if="monitor.type !== 'push'" class="mt-5 mb-2">{{ $t("Advanced") }}</h2>
+                           <!-- <h2 v-if="monitor.type !== 'push'" class="mt-5 mb-2">{{ $t("Advanced") }}</h2>
 
                             <div v-if="monitor.type === 'http' || monitor.type === 'keyword' || monitor.type === 'json-query' " class="my-3 form-check" :title="monitor.ignoreTls ? $t('ignoredTLSError') : ''">
                                 <input id="expiry-notification" v-model="monitor.expiryNotification" class="form-check-input" type="checkbox" :disabled="monitor.ignoreTls">
@@ -692,19 +692,20 @@
                                 <div class="form-text">
                                     {{ $t("gamedigGuessPortDescription") }}
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- Max Packets / Count -->
-                            <div v-if="monitor.type === 'ping'" class="my-3">
+                           
+                           <!-- <div v-if="monitor.type === 'ping'" class="my-3">
                                 <label for="ping-count" class="form-label">{{ $t("pingCountLabel") }}</label>
                                 <input id="ping-count" v-model="monitor.ping_count" type="number" class="form-control" required min="1" max="100" step="1">
                                 <div class="form-text">
                                     {{ $t("pingCountDescription") }}
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- Numeric Output -->
-                            <div v-if="monitor.type === 'ping'" class="my-3 form-check">
+                          <!--  <div v-if="monitor.type === 'ping'" class="my-3 form-check">
                                 <input id="ping_numeric" v-model="monitor.ping_numeric" type="checkbox" class="form-check-input" :checked="monitor.ping_numeric">
                                 <label class="form-check-label" for="ping_numeric">
                                     {{ $t("pingNumericLabel") }}
@@ -712,25 +713,25 @@
                                 <div class="form-text">
                                     {{ $t("pingNumericDescription") }}
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- Packet size -->
-                            <div v-if="monitor.type === 'ping'" class="my-3">
+                           <!-- <div v-if="monitor.type === 'ping'" class="my-3">
                                 <label for="packet-size" class="form-label">{{ $t("Packet Size") }}</label>
                                 <input id="packet-size" v-model="monitor.packetSize" type="number" class="form-control" required min="1" :max="65500" step="1">
-                            </div>
+                            </div> -->
 
                             <!-- per-request timeout -->
-                            <div v-if="monitor.type === 'ping'" class="my-3">
+                          <!--  <div v-if="monitor.type === 'ping'" class="my-3">
                                 <label for="ping_per_request_timeout" class="form-label">{{ $t("pingPerRequestTimeoutLabel") }}</label>
                                 <input id="ping_per_request_timeout" v-model="monitor.ping_per_request_timeout" type="number" class="form-control" required min="0" max="300" step="1">
                                 <div class="form-text">
                                     {{ $t("pingPerRequestTimeoutDescription") }}
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- HTTP / Keyword only -->
-                            <template v-if="monitor.type === 'http' || monitor.type === 'keyword' || monitor.type === 'json-query' || monitor.type === 'grpc-keyword' ">
+                          <!--  <template v-if="monitor.type === 'http' || monitor.type === 'keyword' || monitor.type === 'json-query' || monitor.type === 'grpc-keyword' ">
                                 <div class="my-3">
                                     <label for="maxRedirects" class="form-label">{{ $t("Max. Redirects") }}</label>
                                     <input id="maxRedirects" v-model="monitor.maxredirects" type="number" class="form-control" required min="0" step="1">
@@ -774,10 +775,10 @@
                                         </template>
                                     </i18n-t>
                                 </div>
-                            </template>
+                            </template> -->
 
                             <!-- Parent Monitor -->
-                            <div class="my-3">
+                           <!-- <div class="my-3">
                                 <label for="monitorGroupSelector" class="form-label">{{ $t("Monitor Group") }}</label>
                                 <ActionSelect
                                     id="monitorGroupSelector"
@@ -788,14 +789,14 @@
                                     :icon="'plus'"
                                     :action="() => $refs.createGroupDialog.show()"
                                 />
-                            </div>
+                            </div> -->
 
                             <!-- Description -->
                             <div class="my-3">
                                 <label for="description" class="form-label">{{ $t("Description") }}</label>
                                 <input id="description" v-model="monitor.description" type="text" class="form-control">
                             </div>
-
+                        
                             <div class="my-3">
                                 <tags-manager ref="tagsManager" :pre-selected-tags="monitor.tags"></tags-manager>
                             </div>
@@ -826,7 +827,7 @@
                             </button>
 
                             <!-- Proxies -->
-                            <div v-if="monitor.type === 'http' || monitor.type === 'keyword' || monitor.type === 'json-query'">
+                         <!--   <div v-if="monitor.type === 'http' || monitor.type === 'keyword' || monitor.type === 'json-query'">
                                 <h2 class="mt-5 mb-2">{{ $t("Proxy") }}</h2>
                                 <p v-if="$root.proxyList.length === 0">
                                     {{ $t("Not available, please setup.") }}
@@ -851,7 +852,7 @@
                                 <button class="btn btn-primary me-2" type="button" @click="$refs.proxyDialog.show()">
                                     {{ $t("Setup Proxy") }}
                                 </button>
-                            </div>
+                            </div> -->
 
                             <!-- Kafka SASL Options -->
                             <!-- Kafka Producer only -->
@@ -905,10 +906,10 @@
 
                             <!-- HTTP Options -->
                             <template v-if="monitor.type === 'http' || monitor.type === 'keyword' || monitor.type === 'json-query' ">
-                                <h2 class="mt-5 mb-2">{{ $t("HTTP Options") }}</h2>
+                               <!-- <h2 class="mt-5 mb-2">{{ $t("HTTP Options") }}</h2> -->
 
                                 <!-- Method -->
-                                <div class="my-3">
+                               <!-- <div class="my-3">
                                     <label for="method" class="form-label">{{ $t("Method") }}</label>
                                     <select id="method" v-model="monitor.method" class="form-select">
                                         <option value="GET">
@@ -933,35 +934,36 @@
                                             OPTIONS
                                         </option>
                                     </select>
-                                </div>
+                                </div> 
+                            -->
 
                                 <!-- Encoding -->
-                                <div class="my-3">
+                             <!--   <div class="my-3">
                                     <label for="httpBodyEncoding" class="form-label">{{ $t("Body Encoding") }}</label>
                                     <select id="httpBodyEncoding" v-model="monitor.httpBodyEncoding" class="form-select">
                                         <option value="json">JSON</option>
                                         <option value="form">x-www-form-urlencoded</option>
                                         <option value="xml">XML</option>
                                     </select>
-                                </div>
+                                </div> -->
 
                                 <!-- Body -->
-                                <div class="my-3">
+                               <!-- <div class="my-3">
                                     <label for="body" class="form-label">{{ $t("Body") }}</label>
                                     <textarea id="body" v-model="monitor.body" class="form-control" :placeholder="bodyPlaceholder"></textarea>
-                                </div>
+                                </div> -->
 
                                 <!-- Headers -->
-                                <div class="my-3">
+                               <!-- <div class="my-3">
                                     <label for="headers" class="form-label">{{ $t("Headers") }}</label>
                                     <textarea id="headers" v-model="monitor.headers" class="form-control" :placeholder="headersPlaceholder"></textarea>
-                                </div>
+                                </div> -->
 
                                 <!-- HTTP Auth -->
-                                <h4 class="mt-5 mb-2">{{ $t("Authentication") }}</h4>
+                              <!-- <h4 class="mt-5 mb-2">{{ $t("Authentication") }}</h4> -->
 
                                 <!-- Method -->
-                                <div class="my-3">
+                               <!-- <div class="my-3">
                                     <label for="method" class="form-label">{{ $t("Method") }}</label>
                                     <select id="method" v-model="monitor.authMethod" class="form-select">
                                         <option :value="null">
@@ -980,7 +982,7 @@
                                             mTLS
                                         </option>
                                     </select>
-                                </div>
+                                </div> -->
                                 <template v-if="monitor.authMethod && monitor.authMethod !== null ">
                                     <template v-if="monitor.authMethod === 'mtls' ">
                                         <div class="my-3">
@@ -1054,7 +1056,7 @@
                                         </template>
                                     </template>
                                 </template>
-                            </template>
+                            </template> 
 
                             <!-- gRPC Options -->
                             <template v-if="monitor.type === 'grpc-keyword' ">
