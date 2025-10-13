@@ -28,7 +28,7 @@ export const isNode = typeof process !== "undefined" && process?.versions?.node;
  */
 const dayjs = (isNode) ? require("dayjs") : dayjsFrontend;
 
-export const appName = "Uptime Kuma";
+export const appName = "Uptime Monitoring";
 export const DOWN = 0;
 export const UP = 1;
 export const PENDING = 2;
@@ -44,7 +44,7 @@ export const SQL_DATETIME_FORMAT = "YYYY-MM-DD HH:mm:ss";
 export const SQL_DATETIME_FORMAT_WITHOUT_SECOND = "YYYY-MM-DD HH:mm";
 
 export const MAX_INTERVAL_SECOND = 2073600; // 24 days
-export const MIN_INTERVAL_SECOND = 20; // 20 seconds
+export const MIN_INTERVAL_SECOND = 5; // 20 seconds
 
 // Packet Size limits
 export const PING_PACKET_SIZE_MIN = 1;
@@ -395,13 +395,6 @@ export const log = new Logger();
 
 declare global { interface String { replaceAll(str: string, newStr: string): string; } }
 
-/**
- * String.prototype.replaceAll() polyfill
- * https://gomakethings.com/how-to-replace-a-section-of-a-string-with-another-one-with-vanilla-js/
- * @author Chris Ferdinandi
- * @license MIT
- * @returns {void}
- */
 export function polyfill() {
     if (!String.prototype.replaceAll) {
         String.prototype.replaceAll = function (str: string, newStr: string) {

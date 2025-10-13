@@ -92,30 +92,31 @@ export default {
                 notifications: {
                     title: this.$t("Notifications"),
                 },
-                "reverse-proxy": {
+               /* "reverse-proxy": {
                     title: this.$t("Reverse Proxy"),
-                },
+                }, */
                 tags: {
                     title: this.$t("Tags"),
                 },
                 "monitor-history": {
                     title: this.$t("Monitor History"),
                 },
-                "docker-hosts": {
+               /*"docker-hosts": {
                     title: this.$t("Docker Hosts"),
-                },
-                "remote-browsers": {
+                }, */
+               /*"remote-browsers": {
                     title: this.$t("Remote Browsers"),
-                },
+                },*/
                 security: {
                     title: this.$t("Security"),
                 },
-                "api-keys": {
+               /* "api-keys": {
                     title: this.$t("API Keys")
-                },
-                proxies: {
+                }, */
+
+               /* proxies: {
                     title: this.$t("Proxies"),
-                },
+                }, */
                 about: {
                     title: this.$t("About"),
                 },

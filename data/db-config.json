@@ -2,7 +2,7 @@
     "type": "sqlite",
     "port": 3306,
     "hostname": "",
-    "username": "",
-    "password": "",
+    "username": "NSJBI",
+    "password": "Nsjbi@123@!",
     "dbName": "kuma"
 }

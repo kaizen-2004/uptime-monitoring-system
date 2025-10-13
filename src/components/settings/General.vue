@@ -132,8 +132,8 @@
                 <div class="form-text"></div>
             </div>
 
-            <!-- Steam API Key -->
-            <div class="mb-4">
+           <!-- Steam API Key -->
+         <!--    <div class="mb-4">
                 <label class="form-label" for="steamAPIKey">
                     {{ $t("Steam API Key") }}
                 </label>
@@ -149,7 +149,7 @@
                     </a>
                 </div>
             </div>
-
+        -->
             <!-- DNS Cache (nscd) -->
             <div v-if="$root.info.isContainer" class="mb-4">
                 <label class="form-label">
@@ -187,8 +187,8 @@
                 </div>
             </div>
 
-            <!-- Chrome Executable -->
-            <div class="mb-4">
+           <!-- Chrome Executable -->
+           <!-- <div class="mb-4">
                 <label class="form-label" for="primaryBaseURL">
                     {{ $t("chromeExecutable") }}
                 </label>
@@ -209,7 +209,7 @@
                 <div class="form-text">
                     {{ $t("chromeExecutableDescription") }}
                 </div>
-            </div>
+            </div> -->
 
             <!-- Save Button -->
             <div>

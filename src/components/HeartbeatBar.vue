@@ -188,13 +188,13 @@
   .neon-blue {
     stroke: #00ffff;
     filter: drop-shadow(0 0 4px #00ffff) drop-shadow(0 0 6px #00ffff);
-    animation: pulse-blue 4s linear infinite;
+    animation: pulse-blue 3s linear infinite;
   }
   
   .neon-red {
   stroke: #ff0040;
   filter: drop-shadow(0 0 2px #ff0040) drop-shadow(0 0 6px #ff0040) drop-shadow(0 0 10px #ff0040);
-  animation: pulse-red 1.2s ease-in-out infinite;
+  animation: pulse-red 1.2s linear infinite;
 }
   
   @keyframes pulse-blue {
