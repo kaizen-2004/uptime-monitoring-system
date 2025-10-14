@@ -4,8 +4,8 @@ Here's a refactored version of your README with improved organization, clearer i
 
 A self-hosted monitoring solution for Windows to monitor your websites, servers, and services. Get instant alerts when something goes down.
 
-![Dashboard Demo](<img width="1921" height="1081" alt="image" src="https://github.com/user-attachments/assets/c1c844aa-923e-4237-b7af-da70db7bbfcc" />)
-![Status Page Demo](<img width="1913" height="1077" alt="image" src="https://github.com/user-attachments/assets/34e24bef-5eea-4115-bad4-566cac72a2fc" />)
+![Dashboard Demo](https://github.com/user-attachments/assets/c1c844aa-923e-4237-b7af-da70db7bbfcc)
+![Status Page Demo](https://github.com/user-attachments/assets/34e24bef-5eea-4115-bad4-566cac72a2fc)
 
 ## 🚀 Quick Start
 
